@@ -33,10 +33,10 @@ def processPriceUpdate(item, myUpdateField):
     point_profit = 0
     ####calcul du pnl pour chaque pos de l'epic actif####
     for dealId in globalvar.dict_openposition:
-        epic = globalvar.dict_openposition.get(dealId).get('epic')    # on récupère le sens pour chaque pos
-        direction = globalvar.dict_openposition.get(dealId).get('direction')    # on récupère le sens pour chaque pos
-        open_level = globalvar.dict_openposition.get(dealId).get('open_level')    # on récupère l'open pour chaque pos
-        size = globalvar.dict_openposition.get(dealId).get('size')    # on récupère la size pour chaque pos
+        epic = globalvar.dict_openposition.get(dealId).get('epic')                         # on récupère l'epic
+        direction = globalvar.dict_openposition.get(dealId).get('direction')               # on récupère le sens pour chaque pos
+        open_level = globalvar.dict_openposition.get(dealId).get('open_level')             # on récupère l'open pour chaque pos
+        size = globalvar.dict_openposition.get(dealId).get('size')                         # on récupère la size pour chaque pos
         ####calcul pnl en points de chaque position Exclusion des lignes qui ne sont pas dans bon epic####
         if (epic == personal.epic):
             if (direction == 'BUY'):
@@ -130,7 +130,7 @@ def processPositionUpdate(item, myUpdateField):
 
 def update_countTicket():
     #print("--- update_countTicket ---")
-    #V1.14.2 : Correction en mode calcul local pour ne pas génére de requete REST "inutile" en cas de trop nombreux message
+    #V1.14.2 : Correction en mode calcul local pour ne pas génére de requete REST "inutile" en cas de trop nombreux messages
     # Externalisation de la fonction
     #Déplacement de cette requete, dans PositionUpdate sinon je genere trop de requete /position (et ca ne sert a rien en dehors des modifications)
     #r = requests.get(urls.positionsurl, headers=urls.fullheaders, proxies=personal.proxies)
@@ -192,7 +192,7 @@ def processTradeUpdate(item, myUpdateField):
                     #print("headers ", urls.deleteheaders)
                     r = requests.post(urls.closeorderurl, data=json.dumps(body), headers=urls.deleteheaders, proxies=personal.proxies)
         else:
-            #Problème dans l'ordre, création d'un dictionnaire similaire à OPU pour l'nevoyer à l'affichage dans le fenêrte d'évenemnt
+            #Problème dans l'ordre, création d'un dictionnaire similaire à OPU pour l'envoyer à l'affichage dans le fenêtre d'évènement
             opu_ordo = [dealStatus, reason]
             window.add_OPUmessage(opu_ordo) #Envoi des evenements OPU dans la sous fenêtre OPU
         #print("Post DELETE Status code -> ", r.status_code)
@@ -210,13 +210,13 @@ def get_openPositions():
     sizeSell = 0
     nb_ticket = 0
     for p in s:
-        dealId = p.get("position").get("dealId") #Sens
-        d = p.get("position").get("direction") #Sens
-        s = p.get("position").get("dealSize") #Taille du contrat
-        ol = p.get("position").get("openLevel") #Cours d'ouverture
-        sl = p.get("position").get("stopLevel") #SL
-        ll = p.get("position").get("limitLevel") #TP
-        e = p.get("market").get("epic") #sous-jacent
+        dealId = p.get("position").get("dealId")      #DealID
+        d = p.get("position").get("direction")        #Sens
+        s = p.get("position").get("dealSize")         #Taille du contrat
+        ol = p.get("position").get("openLevel")       #Cours d'ouverture
+        sl = p.get("position").get("stopLevel")       #SL
+        ll = p.get("position").get("limitLevel")      #TP
+        e = p.get("market").get("epic")               #sous-jacent
         if (e == personal.epic):
             if d == "BUY":
                 sizeBuy += s

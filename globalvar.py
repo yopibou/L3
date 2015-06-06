@@ -36,7 +36,8 @@ isStopGuaranteed = False
 
 isKeyBoardTrading = False #Positionné à false pour forcer l'utilisateur à cliquer sur la case pour ne pas passer des trades
 
-epic_dict = { "Japon 225 au comptant (Mini-contrat 1$)" : "IX.D.NIKKEI.IFM.IP",
+epic_dict = { 
+                    "Japon 225 au comptant (Mini-contrat 1$)" : "IX.D.NIKKEI.IFM.IP",
                     "Australie 200 au comptant (Mini-contrat 5$A)" : "IX.D.ASX.IFM.IP",
                     "EU Stocks 50 au comptant (Mini-Contrat 2E)"	: "IX.D.STXE.IFM.IP",
                     "FTSE 100 au comptant (Contrat 1E)" : "IX.D.FTSE.IFE.IP",

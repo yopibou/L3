@@ -80,7 +80,7 @@ def calculatePivots():
     return S3, S2, S1, Pivot, R1, R2, R3
 
 def pollingMarketsDetails(period=60):
-    #Lance la comman de getmarketDetail dans un thread toute les 'period' secondes pour mettre à jour les variables de deadling du contrat.
+    #Lance la commande getmarketDetail dans un thread toute les 'period' secondes pour mettre à jour les variables de deadling du contrat.
     while True:
         globalvar.minDealSize, globalvar.currencyCode, globalvar.valueOfOnePip, globalvar.scalingFactor, globalvar.minNormalStoporLimitDistance, globalvar.minControlledRiskStopDistance = getMarketsDetails()
         #DEBUG START#
@@ -127,7 +127,7 @@ def getMarketsDetails():
          
     s = j.get(u'snapshot') #Sous-partie snapshot
     scalingFactor = float(s.get(u'scalingFactor'))
-    #print("--- Fonction getMarketsDetails ---  ", minDealSize, currencies_code, valueOfOnePip, scalingFactor)
+    #print("--- Fonction getMarketsDetails ---  ", minDealSize, currencies_code, valueOfOnePip, scalingFactor, minNormalStoporLimitDistance, minControlledRiskStopDistance)
     return minDealSize, currencies_code, valueOfOnePip, scalingFactor, minNormalStoporLimitDistance, minControlledRiskStopDistance #renvoi une valeur en point et la monnaie d'execution, la valeur d'un pip
 
 def getDailyPrices():
