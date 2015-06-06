@@ -1,0 +1,8 @@
+*pyc
+*~
+personal.py
+*logs
+.project
+.pydevproject
+.settings/*
+.gitignore
