@@ -445,13 +445,14 @@ class Window(wx.Frame):
                 self.openpositions_list.SetStringItem(item, 7, str(point_profit))
                 #avec le bonne couleur
                 
-                if point_profit < 0:
-                    self.openpositions_list.SetItemTextColour(item, (218, 45, 40))
-                elif point_profit > 0:
-                    self.openpositions_list.SetItemTextColour(item, (0, 150, 214))
-                elif point_profit == 0:
-                    self.openpositions_list.SetItemTextColour(item, (0, 150, 14))
-                if str(point_profit) == 'N/A':
+                if str(point_profit) != 'N/A':
+                    if point_profit < 0:
+                        self.openpositions_list.SetItemTextColour(item, (218, 45, 40))
+                    elif point_profit > 0:
+                        self.openpositions_list.SetItemTextColour(item, (0, 150, 214))
+                    elif point_profit == 0:
+                        self.openpositions_list.SetItemTextColour(item, (0, 150, 14))
+                else:
                     self.openpositions_list.SetItemTextColour(item, (0, 0, 0))
             except KeyError:
                 pass
