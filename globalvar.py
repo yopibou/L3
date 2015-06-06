@@ -24,7 +24,7 @@ dict_openposition = collections.OrderedDict()
 list_key = ["epic", "size", "direction", "open_level", "limit_level", "stop_level", "pnl"] #List pour ordonner les key des postions
 
 #Variable "Ticket"
-requestDealSize = 1.51
+requestDealSize = 1
 dealSizeDelta = 0 #Init à 0
 isForceOpen = True
 SLpoint = ''
