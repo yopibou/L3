@@ -36,3 +36,41 @@ Enter your user, password and API Key. If you don't have an API Key yet, you can
 
 Enjoy
 
+Installation under MacOSX
+-------
+
+Downloads & install Python 2.7.9 from https://www.python.org/downloads/
+```bash
+$ easy_install requests
+$ easy_install wxpython
+```
+
+Run the program
+```bash
+$ python2 main.py
+```
+
+Enter your user, password and API Key. If you don't have an API Key yet, you can get one from http://labs.ig.com/sample-apps/api-companion/
+
+![alt tag](https://raw.githubusercontent.com/maroxe/igtrade/master/login.png)
+
+Enjoy
+
+Installation under Windows
+-------
+
+Downloads & install Python 2.7.9 from https://www.python.org/downloads/
+Downloads & install wxPython from http://wiki.wxpython.org/How%20to%20install%20wxPython
+```bat
+$ cd C:\Python27\Scripts
+$ pip install requests
+$ easy_install wxpython
+```
+
+Run the program by double clicking on main.cmd
+
+Enter your user, password and API Key. If you don't have an API Key yet, you can get one from http://labs.ig.com/sample-apps/api-companion/
+
+![alt tag](https://raw.githubusercontent.com/maroxe/igtrade/master/login.png)
+
+Enjoy
